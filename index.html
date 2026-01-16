@@ -153,15 +153,59 @@
         document.frmOne.x_birdat.onblur = function () { chk_mandatory(); }
         chk_mandatory();
 
+        const users = [
+            {
+                sno: '261178974',
+                pin: '82152',
+                id: '0504010970086',
+                name: 'MISS LEBOGANG ALUCIA RAMOLLO',
+                courses: [
+                    {
+                        year: '2026',
+                        code: 'DP LAW20: Diploma in Law',
+                        faculty: 'HUMANITIES',
+                        status: 'FA: A: UNCONDITIONAL ACCEPTANCE',
+                        choice: '1'
+                    },
+                    {
+                        year: '2026',
+                        code: 'DPHM19: Diploma in Hospitality Management',
+                        faculty: 'ECONOMICS AND FINANCE',
+                        status: 'FA: P: PROVISIONAL ACCEPTANCE',
+                        choice: '2'
+                    }
+                ]
+            },
+            {
+                sno: '260260979',
+                pin: '14264',
+                id: '0611050643083',
+                name: 'MISS ASNATH MASHAO',
+                courses: [
+                    {
+                        year: '2026',
+                        code: 'DPFM20: Diploma in Financial Management',
+                        faculty: 'ECONOMICS AND FINANCE',
+                        status: 'FA: A: UNCONDITIONAL ACCEPTANCE',
+                        choice: '1'
+                    }
+                ]
+            }
+        ];
+
         function redirectToStatusPage() {
             const idNumber = document.getElementById('x_idno').value;
             const studentNumber = document.getElementById('x_stuno').value;
             const pin = document.getElementById('x_pin').value;
 
-            if (idNumber === '0504010970086') {
-                window.location.href = 'status.html';
-                return false;
-            } else if (studentNumber === '261178974' && pin === '82152') {
+            // Find user matching either ID OR (Student Number AND Pin)
+            const user = users.find(u =>
+                u.id === idNumber || (u.sno === studentNumber && u.pin === pin)
+            );
+
+            if (user) {
+                // Save user to localStorage so status page knows who it is
+                localStorage.setItem('currentUser', JSON.stringify(user));
                 window.location.href = 'status.html';
                 return false;
             } else {
