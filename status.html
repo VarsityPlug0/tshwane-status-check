@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Application Results / Status</title>
@@ -10,67 +11,125 @@
     <script src="/itsincludes/js/overlib.js"></script>
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <style>
+        body {
+            background-image: url('/itsimages/TUT10year.jpg');
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 100% 180px;
+            font-family: Arial, sans-serif;
+        }
+
+        #alignInMiddle {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 180px;
+            width: 80%;
+            background-color: #ECE9D8;
+            position: relative;
+            border: 1px solid black;
+            padding-bottom: 20px;
+        }
+
+        .calendar-icon {
+            font-size: 18px;
+            cursor: pointer;
+            color: blue;
+        }
+
+        /* Student Details Box */
+        .mi_userdet {
+            border: 1px solid #999;
+            background-color: #E2E2E2;
+            /* Light gray background */
+            width: auto;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .mi_userdet td {
+            font-size: 12px;
+            padding: 3px 5px;
+            border: 0;
+        }
+
+        /* Results Table */
         .rltable {
             width: 100%;
             border-collapse: collapse;
         }
-        .rltable td, .rltable th {
-            font-size: 12px;
-            padding: 5px;
+
+        .rltable td,
+        .rltable th {
+            font-size: 11px;
+            /* Slightly smaller to match compact look */
+            padding: 4px;
             border: 0px solid #ddd;
             text-align: left;
+            vertical-align: top;
         }
+
         .rlheader {
-            background-color: #f2f2f2;
+            background-color: #E2E2E2;
             font-weight: bold;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
+
 <body class="framebody" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
     <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
-    <div id="listedDiv">
-        <h3>Application Results / Status</h3>
-        <table id="mi_userdet" class="mi_userdet" cellspacing="0" cellpadding="0" border="1">
-            <tbody>
-                <tr>
-                    <td align="left">
-                        <b>Student Number:</b> 261178974<br>
-                        <b>ID Number:</b> 0504010970066<br>
-                        <b>Name:</b> MISS LEBOGANG ALUCIA<br>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br><br>
-        <table class="rltable" cellspacing="0" cellpadding="2">
-            <tbody>
-                <tr class="rlheader">
-                    <td class="datahdl">Year</td>
-                    <td class="datahdl">Qualification</td>
-                    <td class="datahdl">Faculty</td>
-                    <td class="datahdl">Status</td>
-                    <td class="datahdl">Academic<br>Choice</td>
-                    <td class="datahdl">Application<br>Letter</td>
-                </tr>
-                <tr>
-                    <td>2026</td>
-                    <td>DP LAW20: Diploma in Law</td>
-                    <td>HUMANITIES</td>
-                    <td>FA: A: UNCONDITIONAL ACCEPTANCE</td>
-                    <td>1</td>
-                    <td><a href="">15-JAN-2026</a></td>
-                </tr>
-                <tr>
-                    <td>2026</td>
-                    <td>DPHM19: Diploma in Hospitality Management</td>
-                    <td>MANAGEMENT SCIENCES</td>
-                    <td>FA: P: PROVISIONAL ACCEPTANCE</td>
-                    <td>2</td>
-                    <td><a href="">22-JAN-2026</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <br><br>
+    <div id="alignInMiddle">
+        <div id="listedDiv" style="padding: 10px;">
+            <h3>Application Results / Status</h3>
+            <table id="mi_userdet" class="mi_userdet" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td align="left">
+                            <b>Student Number:</b> 261178974<br>
+                            <b>ID Number:</b> 0504010970086<br>
+                            <b>Name:</b> MISS LEBOGANG ALUCIA RAMOLLO<br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <table class="rltable" cellspacing="0" cellpadding="2">
+                <tbody>
+                    <tr class="rlheader">
+                        <td class="datahdl">Year</td>
+                        <td class="datahdl">Qualification</td>
+                        <td class="datahdl">Faculty</td>
+                        <td class="datahdl">Status</td>
+                        <td class="datahdl">Academic<br>Choice</td>
+                        <td class="datahdl">Application<br>Letter</td>
+                    </tr>
+                    <tr>
+                        <td>2026</td>
+                        <td>DP LAW20: Diploma in Law</td>
+                        <td>HUMANITIES</td>
+                        <td>FA: A: UNCONDITIONAL ACCEPTANCE</td>
+                        <td>1</td>
+                        <td><a href="">16-JAN-2026</a></td>
+                    </tr>
+                    <tr>
+                        <td>2026</td>
+                        <td>DPHM19: Diploma in Hospitality Management</td>
+                        <td>MANAGEMENT SCIENCES</td>
+                        <td>FA: P: PROVISIONAL ACCEPTANCE</td>
+                        <td>2</td>
+                        <td><a href="">16-JAN-2026</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+        </div>
     </div>
 </body>
+
 </html>

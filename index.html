@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ITS iEnabler</title>
     <meta http-equiv="X_UA-Compatible" content="IE=9">
@@ -45,6 +46,7 @@
             background-position: left top;
             background-size: 100% 180px;
         }
+
         #alignInMiddle {
             margin-left: auto;
             margin-right: auto;
@@ -54,6 +56,7 @@
             position: relative;
             border: 1px solid black;
         }
+
         .calendar-icon {
             font-size: 18px;
             cursor: pointer;
@@ -61,6 +64,7 @@
         }
     </style>
 </head>
+
 <body class="framebody" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
     <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
     <script>
@@ -69,10 +73,10 @@
         }
         noBack();
         window.onload = noBack;
-        window.onpageshow = function(evt) {
+        window.onpageshow = function (evt) {
             if (evt.persisted) noBack();
         }
-        window.onunload = function() {
+        window.onunload = function () {
             void (0);
         }
     </script>
@@ -83,27 +87,53 @@
                 <tbody>
                     <tr>
                         <td>ID Number</td>
-                        <td width="10px"><font class="mandatory_fld" id="z_idno" style="display: block;">*</font></td>
-                        <td width="90%"><input type="text" name="x_idno" size="15" maxlength="15" value="" id="x_idno"></td>
+                        <td width="10px">
+                            <font class="mandatory_fld" id="z_idno" style="display: block;">*</font>
+                        </td>
+                        <td width="90%"><input type="text" name="x_idno" size="15" maxlength="15" value="" id="x_idno">
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="3"><h3>Alternatively: Enter the following if you don't have an ID Number</h3></td>
+                        <td colspan="3" align="center"><b>OR</b></td>
+                    </tr>
+                    <tr>
+                        <td>Student Number</td>
+                        <td width="10px"></td>
+                        <td width="90%"><input type="text" name="x_stuno" size="15" maxlength="15" value=""
+                                id="x_stuno"></td>
+                    </tr>
+                    <tr>
+                        <td>Pin</td>
+                        <td width="10px"></td>
+                        <td width="90%"><input type="password" name="x_pin" size="15" maxlength="15" value=""
+                                id="x_pin"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h3>Alternatively: Enter the following if you don't have an ID Number</h3>
+                        </td>
                     </tr>
                     <tr>
                         <td>Surname</td>
-                        <td><font class="mandatory_fld" id="z_surn" style="display: none;"></font></td>
+                        <td>
+                            <font class="mandatory_fld" id="z_surn" style="display: none;"></font>
+                        </td>
                         <td><input type="text" name="x_surn" size="30" maxlength="30" value=""></td>
                     </tr>
                     <tr>
                         <td>Full Name</td>
-                        <td><font class="mandatory_fld" id="z_names" style="display: none;"></font></td>
+                        <td>
+                            <font class="mandatory_fld" id="z_names" style="display: none;"></font>
+                        </td>
                         <td><input type="text" name="x_names" size="30" maxlength="40" value=""></td>
                     </tr>
                     <tr>
                         <td>Date of Birth</td>
-                        <td><font class="mandatory_fld" id="z_birdat" style="display: none;"></font></td>
                         <td>
-                            <input type="text" name="x_birdat" size="12" maxlength="11" value=""/>
+                            <font class="mandatory_fld" id="z_birdat" style="display: none;"></font>
+                        </td>
+                        <td>
+                            <input type="text" name="x_birdat" size="12" maxlength="11" value="" />
                             <a onclick="return Call_calendar(document.frmOne.x_birdat);" href="#" class="calendar-icon">
                                 <img src="calendar.gif" alt="Calendar Icon">
                             </a>
@@ -117,23 +147,30 @@
         </div>
     </form>
     <script language="Javascript1.2">
-        document.frmOne.x_idno.onblur = function() { chk_mandatory(); }
-        document.frmOne.x_surn.onblur = function() { chk_mandatory(); }
-        document.frmOne.x_names.onblur = function() { chk_mandatory(); }
-        document.frmOne.x_birdat.onblur = function() { chk_mandatory(); }
+        document.frmOne.x_idno.onblur = function () { chk_mandatory(); }
+        document.frmOne.x_surn.onblur = function () { chk_mandatory(); }
+        document.frmOne.x_names.onblur = function () { chk_mandatory(); }
+        document.frmOne.x_birdat.onblur = function () { chk_mandatory(); }
         chk_mandatory();
 
         function redirectToStatusPage() {
             const idNumber = document.getElementById('x_idno').value;
-            if (idNumber !== '0402080285081') {
-                alert('The ID Number is incorrect. Please try again.');
+            const studentNumber = document.getElementById('x_stuno').value;
+            const pin = document.getElementById('x_pin').value;
+
+            if (idNumber === '0504010970086') {
+                window.location.href = 'status.html';
+                return false;
+            } else if (studentNumber === '261178974' && pin === '82152') {
+                window.location.href = 'status.html';
+                return false;
+            } else {
+                alert('Login details are incorrect. Please try again.');
                 return false;
             }
-            // Redirect to the status.html page
-            window.location.href = 'status.html';
-            return false; // Prevent form submission
         }
     </script>
     <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
 </body>
+
 </html>
